@@ -12,7 +12,7 @@ export class MotoristaController{
         return this.motoristaService.findAll();
     }
 
-    @Get('/id')
+    @Get('/:id')
     @HttpCode(HttpStatus.OK)
     findById(@Param('id', ParseIntPipe) id: number): Promise<Motorista>{
         return this.motoristaService.findById(id);
@@ -36,7 +36,7 @@ export class MotoristaController{
         return this.motoristaService.update(motorista);
     }
 
-    @Delete('/id')
+    @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)
     delete(@Param('id', ParseIntPipe) id: number){
         return this.motoristaService.delete(id);

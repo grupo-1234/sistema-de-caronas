@@ -1,5 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
-import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, ManyToOne } from 'typeorm';
+import { Categoria } from '../../categoria/entities/categoria.entity';
+import { Motorista } from '../../motorista/entities/motorista.entity';
 
 @Entity({ name: 'tb_viagem' })
 export class Viagem {
@@ -27,15 +29,15 @@ export class Viagem {
   @UpdateDateColumn()
   data: Date
 
-  /* @ManyToOne(() => Motorista, (motorista) => motorista.viagens, {
+   @ManyToOne(() => Motorista, (motorista) => motorista.viagem, {
     onDelete: 'CASCADE'
   })
   motorista: Motorista;
 
-     @ManyToOne(() => Categoria, (categoria) => categoria.viagens, {
+     @ManyToOne(() => Categoria, (categoria) => categoria.viagem, {
     onDelete: 'CASCADE'
   })
-  categoria: Categoria;*/
+  categoria: Categoria;
 }
 
 /*CREATE DATABASE db_caronas;
