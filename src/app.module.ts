@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Viagem } from './viagem/entities/viagem.entity';
 import { ViagemModule } from './viagem/viagem.module';
+import { Categoria } from './categoria/entities/categoria.entity';
+import { CategoriaModule } from './categoria/categoria.module';
 
 @Module({
   imports: [
@@ -12,10 +14,10 @@ import { ViagemModule } from './viagem/viagem.module';
         username: 'root',
         password: 'root',
         database: 'db_caronas',
-        entities: [Viagem],
+        entities: [Viagem,Categoria],
         synchronize: true,
 }),
-ViagemModule],
+ViagemModule, CategoriaModule],
   controllers: [],
   providers: [],
 })
