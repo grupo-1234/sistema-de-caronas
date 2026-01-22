@@ -4,6 +4,8 @@ import { Viagem } from './viagem/entities/viagem.entity';
 import { ViagemModule } from './viagem/viagem.module';
 import { Motorista } from './motorista/entities/motorista.entity';
 import { MotoristaModule } from './motorista/motorista.module';
+import { Categoria } from './categoria/entities/categoria.entity';
+import { CategoriaModule } from './categoria/categoria.module';
 
 @Module({
   imports: [
@@ -14,11 +16,12 @@ import { MotoristaModule } from './motorista/motorista.module';
         username: 'root',
         password: 'root',
         database: 'db_caronas',
-        entities: [Viagem, Motorista],
+        entities: [Viagem, Motorista, Categoria],
         synchronize: true,
 }),
 ViagemModule,
-MotoristaModule
+MotoristaModule,
+CategoriaModule
 ],
   controllers: [],
   providers: [],
