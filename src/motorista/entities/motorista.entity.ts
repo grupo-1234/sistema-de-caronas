@@ -30,7 +30,7 @@ export class Motorista{
     @Column({length: 255, nullable: false})
     senha: string;
 
-    // @OneToMany(() => Viagem, (viagem) => viagem.motorista)
-    // viagem: Viagem[]
+    @OneToMany(() => Viagem, (viagem) => viagem.motorista)
+    viagem: Viagem[]
 
 }
