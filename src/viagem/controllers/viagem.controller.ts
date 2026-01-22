@@ -42,4 +42,16 @@ export class ViagemController {
         return this.viagemService.delete(id);
     }
 
+    @Get('/:id/tempo')
+    @HttpCode(HttpStatus.OK)
+    calcularTempo(@Param('id', ParseIntPipe) id: number){
+        return this.viagemService.calcularTempo(id);
+    }
+
+    @Get('/:id/valor')
+    @HttpCode(HttpStatus.OK)
+    calcularValor(@Param('id', ParseIntPipe) id: number){
+        return this.viagemService.calcularValor(id);
+    }
+
 }

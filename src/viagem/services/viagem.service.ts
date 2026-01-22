@@ -43,4 +43,29 @@ export class ViagemService {
         return this.viagemRepository.delete(id);
     }
 
+    //calulo do tempo da viagem
+    async calcularTempo(id: number): Promise<number>{
+        const viagem = await this.findById(id);
+
+        const tempoEmHoras = viagem.distancia / viagem.velocidadeMedia
+        const tempoEmMinutos = tempoEmHoras * 60;
+
+        return Number(tempoEmMinutos.toFixed(2))
+    }
+
+    //Cazlculo do valor da viagem
+    async calcularValor(id: number): Promise<number>{
+        const viagem = await this.findById(id);
+
+        const tempoEmHoras = viagem.distancia / viagem.velocidadeMedia;
+        const tempoEmMinutos = tempoEmHoras + 60;
+
+        const valorPorKm = viagem.distancia * 2;
+        const valorPorMinuto = tempoEmMinutos * 0.5;
+
+        const valorTotal = valorPorKm + valorPorMinuto;
+
+        return Number(valorTotal.toFixed(2));
+    }
+
 }
