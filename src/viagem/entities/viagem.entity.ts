@@ -3,6 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn } from 'typeor
 
 @Entity({ name: 'tb_viagem' })
 export class Viagem {
+  [x: string]: any;
 
   @PrimaryGeneratedColumn()
   id: number;
