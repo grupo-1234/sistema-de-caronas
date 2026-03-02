@@ -1,4 +1,4 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsPositive } from 'class-validator';
 import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, ManyToOne } from 'typeorm';
 import { Categoria } from '../../categoria/entities/categoria.entity';
 import { Motorista } from '../../motorista/entities/motorista.entity';
@@ -25,6 +25,18 @@ export class Viagem {
   @IsNotEmpty()
   @Column('float')
   velocidadeMedia: number;
+
+  @IsPositive()
+  @Column({
+    type: 'decimal',
+    precision: 19,
+    scale: 4,
+    transformer: {
+      from: (value: string) => parseFloat(value),
+      to: (value: number) => value,
+    },
+  })
+  preco: number;
 
   @UpdateDateColumn()
   data: Date
