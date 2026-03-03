@@ -42,12 +42,14 @@ export class Viagem {
   data: Date
 
    @ManyToOne(() => Motorista, (motorista) => motorista.viagem, {
-    onDelete: 'CASCADE'
+    onDelete: 'CASCADE',
+    eager: true
   })
   motorista: Motorista;
 
      @ManyToOne(() => Categoria, (categoria) => categoria.viagem, {
-    onDelete: 'CASCADE'
+    onDelete: 'CASCADE',
+    eager: true
   })
   categoria: Categoria;
 }
